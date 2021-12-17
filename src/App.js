@@ -13,17 +13,13 @@ export const App = () => {
   const { data, isFetching } = useFetchContactsQuery();
   const [filter, setFilter] = useState('');
 
-  const onChangeFilter = e => {
-    setFilter(e.target.value);
-  };
-
   return (
     <>
       <Section title="Phonebook">
         <Form contacts={data} />
       </Section>
       <Section title="Contacts">
-        <Filter onChange={onChangeFilter} value={filter} />
+        <Filter onChange={setFilter} value={filter} />
         {data && <ContactList contacts={getVisibleContacts(data, filter)} />}
         {isFetching && (
           <Loader type="Puff" color="#7dcdff" style={{ textAlign: 'center' }} />

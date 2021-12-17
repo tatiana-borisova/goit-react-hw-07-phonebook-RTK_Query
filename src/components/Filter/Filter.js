@@ -10,7 +10,7 @@ const Filter = ({ onChange, value }) => {
           className={s.input}
           type="text"
           placeholder="Enter name or number"
-          onChange={onChange}
+          onChange={e => onChange(e.target.value)}
           value={value}
         ></input>
       </label>
