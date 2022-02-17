@@ -1,8 +1,8 @@
 {
-  "name": "goit-react-hw-07-phonebook",
+  "name": "goit-react-hw-07-phonebook-RTK_Query",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tatiana-borisova.github.io/goit-react-hw-07-phonebook",
+  "homepage": "https://tatiana-borisova.github.io/goit-react-hw-07-phonebook-RTK_Query",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.0",
     "@testing-library/jest-dom": "^5.14.1",
