@@ -4,14 +4,14 @@ import { useDeleteContactMutation } from '../../redux/contacts/contactSlice';
 import s from './Contact.module.css';
 
 const Contact = ({ data }) => {
-  const { name, phone, id } = data;
+  const { name, number, id } = data;
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
 
   return (
     <div className={s.contact}>
       <span className={s.name}>{name}:</span>
-      <a className={s.number} href={`tel:${phone}`}>
-        {phone}
+      <a className={s.number} href={`tel:${number}`}>
+        {number}
       </a>
       <button
         className={s.button}
@@ -29,7 +29,7 @@ Contact.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }),
 };
 

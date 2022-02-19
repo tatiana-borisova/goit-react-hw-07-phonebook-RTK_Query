@@ -3,6 +3,6 @@ export const getVisibleContacts = (allItems, filter) => {
   return allItems.filter(
     item =>
       item.name.toLowerCase().includes(normalizedFilter) ||
-      item.phone.includes(normalizedFilter),
+      item.number.includes(normalizedFilter),
   );
 };

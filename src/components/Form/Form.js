@@ -5,13 +5,13 @@ import s from './Form.module.css';
 
 const Form = ({ contacts }) => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const [createContact, { isLoading }] = useCreateContactMutation();
 
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     name === 'name' && setName(value);
-    name === 'phone' && setPhone(value);
+    name === 'phone' && setNumber(value);
   };
 
   const handleSubmit = e => {
@@ -19,21 +19,21 @@ const Form = ({ contacts }) => {
     const isNameHere = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
-    const isNumberHere = contacts.find(contact => contact.phone === phone);
+    const isNumberHere = contacts.find(contact => contact.number === number);
 
     if (isNameHere || isNumberHere) {
       alert(
         `${isNameHere ? name : ''}${
-          isNumberHere ? ' ' + phone : ''
+          isNumberHere ? ' ' + number : ''
         } is already in contacts`,
       );
     } else {
-      createContact({ name, phone });
+      createContact({ name, number });
       toast.success('Contact was added!');
     }
 
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -62,7 +62,7 @@ const Form = ({ contacts }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           placeholder="Enter number"
-          value={phone}
+          value={number}
           onChange={handleChange}
         />
       </label>
